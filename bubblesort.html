@@ -1,1 +1,58 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteer Getallen</title>
+</head>
+<body>
+    <script>
+        function main() {
+            var zoekGetal, a;
+            var aantalgetallen;
+            var keuze;
+
+            window.alert("Hoeveel getallen wilt u precies aanvragen?");
+            aantalgetallen = Number(window.prompt('Voer een waarde in voor aantalgetallen'));
+            var getallenRij = createArray(aantalgetallen);
+
+            for (a = 0; a <= aantalgetallen - 1; a++) {
+                getallenRij[a] = Math.floor(Math.random() * 1000);
+            }
+            var temp;
+            var teller;
+
+            window.alert("Kies het getal 1 als je de getallen van klein naar groot wilt en kies een ander getal als je juist van groot naar klein wilt");
+            keuze = Number(window.prompt('Voer een waarde in voor keuze'));
+            if (keuze == 1) {
+                for (teller = 1; teller <= aantalgetallen; teller++) {
+                    for (a = 0; a <= aantalgetallen - 2; a++) {
+                        if (getallenRij[a] > getallenRij[a + 1]) {
+                            temp = getallenRij[a];
+                            getallenRij[a] = getallenRij[a + 1];
+                            getallenRij[a + 1] = temp;
+                        }
+                    }
+                }
+            } else {
+                for (teller = 1; teller <= aantalgetallen; teller++) {
+                    for (a = 0; a <= aantalgetallen - 2; a++) {
+                        if (getallenRij[a] < getallenRij[a + 1]) {
+                            temp = getallenRij[a];
+                            getallenRij[a] = getallenRij[a + 1];
+                            getallenRij[a + 1] = temp;
+                        }
+                    }
+                }
+            }
+            teller = 0;
+            for (teller = 0; teller <= aantalgetallen - 1; teller++) {
+                window.alert(getallenRij[teller]);
+            }
+            window.alert("Gefeliciteerd! De gekozen getallen zijn nu in de juiste volgorde van klein naar groot gesorteerd.");
+            window.alert("Dankjewel voor het gebruik maken van het programma.");
+        }
+    </script>
+</body>
+</html>
 
