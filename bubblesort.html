@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorteer Getallen</title>
 </head>
+
 <body>
     <script>
-        function main() {
+       
             var zoekGetal, a;
             var aantalgetallen;
             var keuze;
 
             window.alert("Hoeveel getallen wilt u precies aanvragen?");
             aantalgetallen = Number(window.prompt('Voer een waarde in voor aantalgetallen'));
-            var getallenRij = createArray(aantalgetallen);
+            var getallenRij = new Array(aantalgetallen);
 
             for (a = 0; a <= aantalgetallen - 1; a++) {
                 getallenRij[a] = Math.floor(Math.random() * 1000);
@@ -51,7 +52,7 @@
             }
             window.alert("Gefeliciteerd! De gekozen getallen zijn nu in de juiste volgorde van klein naar groot gesorteerd.");
             window.alert("Dankjewel voor het gebruik maken van het programma.");
-        }
+        
     </script>
 </body>
 </html>
