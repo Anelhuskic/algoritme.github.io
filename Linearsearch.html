@@ -1,9 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Number</title>
+    <title>Zoek een Getal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #27a0be;
+            color: #333;
+        }
+        #container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #1b7b35;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #fff;
+        }
+        p {
+            margin-bottom: 20px;
+            color: #fff;
+            line-height: 1.5;
+        }
+        input[type="number"], button {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #135f27;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="number"] {
+            width: calc(70% - 20px);
+            margin-right: 10px;
+        }
+        button {
+            width: calc(30% - 10px);
+        }
+        button:hover {
+            background-color: #135f27;
+        }
+    </style>
     <script>
         function main() {
             var zoekGetal, i;
@@ -13,7 +59,6 @@
                 getallenRij[i] = Math.floor(Math.random() * 100);
             }
 
-            // Display getallenRij
             var displayString = "GetallenRij: ";
             for (i = 0; i < getallenRij.length; i++) {
                 displayString += getallenRij[i] + " ";
@@ -38,7 +83,6 @@
             });
         }
 
-        // Utility function to create an array of specified length
         function createArray(length) {
             var arr = new Array(length || 0);
             var i = length;
@@ -53,12 +97,21 @@
     </script>
 </head>
 <body onload="main()">
-    <h1>Zoek een Getal</h1>
-    <p>Vul een getal in en klik op Zoek om te kijken of het in de getallenRij voorkomt.</p>
-    <p id="getallenRij"></p>
-    <input type="number" id="zoekGetal" placeholder="Voer een getal in">
-    <button id="zoekButton">Zoek</button>
+    <div id="container">
+        <h1>Zoek een Getal</h1>
+        <p>Vul een getal in en klik op Zoek om te kijken of het in de getallenRij voorkomt.</p>
+        <p id="getallenRij"></p>
+        <input type="number" id="zoekGetal" placeholder="Voer een getal in">
+        <button id="zoekButton">Zoek</button>
+    </div>
 </body>
 </html>
+
+
+
+
+
+
+
 
 
