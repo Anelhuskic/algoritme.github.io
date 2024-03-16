@@ -1,1 +1,84 @@
-.
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Search Programma</title>
+    <script>
+        function main() {
+            var getal;
+            var eersteTeller, tweedeTeller;
+            var tussenmap;
+            var a, gekozengetal, plek, startpunt, eind;
+            var midden, middelsteGetal;
+            var antwoord;
+            var aantal;
+            var reeks = createArray(50);
+
+            // Alle variabelen toevoegen die nodig zijn.
+            for (aantal = 0; aantal <= 49; aantal++) {
+                // Er wordt een getal onder de 100, 50 keer gegenereerd en uiteindelijk gekozen.
+                getal = Math.floor(Math.random() * 99);
+                reeks[aantal] = getal;
+            }
+
+            // Voeg for-loops toe.
+            for (tweedeTeller = 1; tweedeTeller <= aantal; tweedeTeller++) {
+                for (eersteTeller = 0; eersteTeller <= aantal - 2; eersteTeller++) {
+                    if (reeks[eersteTeller] > reeks[eersteTeller + 1]) {
+                        // Het getal wordt omgedraaid als getal 1 groter is dan getal 2.
+                        tussenmap = reeks[eersteTeller];
+                        reeks[eersteTeller] = reeks[eersteTeller + 1];
+                        reeks[eersteTeller + 1] = tussenmap;
+                    }
+                }
+            }
+
+            var gekozengetal = parseInt(prompt("Welk getal wilt u zoeken? Kies een getal tussen 0 en 100."));
+
+            // De reeks wordt helemaal gepakt.
+            startpunt = 0;
+            eind = reeks.length - 1;
+            var gevonden = false;
+
+            while (startpunt <= eind) {
+                midden = Math.floor((startpunt + eind) / 2);
+                if (gekozengetal == reeks[midden]) {
+                    startpunt = eind + 1;
+                    gevonden = true;
+                } else {
+                    if (gekozengetal > reeks[midden]) {
+                        startpunt = midden + 1;
+                    } else {
+                        eind = midden - 1;
+                    }
+                }
+            }
+            plek = midden + 1;
+            if (gevonden) {
+                // De gebruiker krijgt het volgende te zien als zijn getal op de plek staat.
+                alert("Nummer " + gekozengetal + " staat op plek " + plek);
+                alert("Gefeliciteerd!");
+            } else {
+                // De gebruiker wordt aangeraden om het weer opnieuw te proberen als zijn getal er niet in staat.
+                alert(gekozengetal + " staat er niet in.");
+                alert("Helaas... Probeer het opnieuw");
+            }
+        }
+
+        function createArray(length) {
+            var arr = new Array(length || 0);
+            var i = length;
+            if (arguments.length > 1) {
+                var args = Array.prototype.slice.call(arguments, 1);
+                while (i--) arr[length - 1 - i] = createArray.apply(this, args);
+            }
+            return arr;
+        }
+    </script>
+</head>
+<body>
+    <button onclick="main()">Start</button>
+</body>
+</html>
+
