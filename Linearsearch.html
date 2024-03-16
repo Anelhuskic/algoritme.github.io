@@ -52,9 +52,11 @@
     </style>
     <script>
         function main() {
+             // Het programma is een eenvoudige methode om een bepaald item in een lijst te vinden door elk element sequentieel te controleren.
             var zoekGetal, i;
             var getallenRij = createArray(10);
-
+    // Ik voeg eerst 2 variabelen toe genaamd zoekGetal,i en getallenRij
+    // Ik voeg nu een forloop toe waar uit 100 getallen er 10 random worden gekozen bij de vakjes 
             for (i = 0; i <= 9; i++) {
                 getallenRij[i] = Math.floor(Math.random() * 100);
             }
@@ -67,11 +69,13 @@
 
             document.getElementById("zoekButton").addEventListener("click", function() {
                 zoekGetal = Number(document.getElementById("zoekGetal").value);
+                  
                 i = 0;
-
+    // Er wordt nu aan de gebruiker gevraagd welk getal hij wilt zoeken en hij mag antwoord geven.
                 while (getallenRij[i] != zoekGetal && i < 9) {
                     i = i + 1;
                 }
+    // Nu wordt er gecontroleerd of het gekozen getal in de getallenRij (0tm9) zit.
                 if (getallenRij[9] == zoekGetal) {
                     window.alert(zoekGetal + " staat op plek " + i);
                 }
@@ -80,6 +84,7 @@
                 } else {
                     window.alert(zoekGetal + " staat op plek " + i);
                 }
+    // Er wordt nu aangegeven of het gekozen getal wel of niet in de getallenRij zit.
             });
         }
 
@@ -95,11 +100,13 @@
             return arr;
         }
     </script>
+    
 </head>
 <body onload="main()">
     <div id="container">
         <h1>Zoek een Getal</h1>
         <p>Vul een getal in en klik op Zoek om te kijken of het in de getallenRij voorkomt.</p>
+       
         <p id="getallenRij"></p>
         <input type="number" id="zoekGetal" placeholder="Voer een getal in">
         <button id="zoekButton">Zoek</button>
